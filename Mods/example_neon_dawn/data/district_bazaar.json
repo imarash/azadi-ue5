@@ -1,0 +1,24 @@
+{
+  "type": "district",
+  "items": [
+    {
+      "id": "bazaar",
+      "displayName": "Bazaar Alleys — Neon Dawn",
+      "map": "L_Bazaar",
+      "objective": "ReachExit",
+      "stylePackId": "neon_dawn",
+      "signageSetId": "bazaar_fa",
+      "lightingPreset": "night",
+      "enemyBudget": 7,
+      "totalEnemies": 18,
+      "spawnTable": [
+        { "enemyId": "wraith", "weight": 0.55 },
+        { "enemyId": "baton_husk", "weight": 0.3 },
+        { "enemyId": "censor_drone", "weight": 0.15 }
+      ],
+      "loadout": ["sidearm", "street_thunder", "braid_whip"],
+      "rescueReward": 0.15,
+      "signageFlipThreshold": 0.45
+    }
+  ]
+}

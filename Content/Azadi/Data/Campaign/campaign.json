@@ -1,0 +1,10 @@
+{
+  "type": "campaign",
+  "items": [
+    {
+      "id": "main",
+      "displayName": "Rise of the Dawn",
+      "districts": ["rooftops", "bazaar", "detention", "tv_tower", "plaza"]
+    }
+  ]
+}

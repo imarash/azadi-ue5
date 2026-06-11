@@ -1,0 +1,101 @@
+{
+  "type": "district",
+  "items": [
+    {
+      "id": "rooftops",
+      "displayName": "Rooftops at Night",
+      "map": "L_Rooftops",
+      "objective": "ReachExit",
+      "stylePackId": "urban_grit",
+      "signageSetId": "bazaar_fa",
+      "lightingPreset": "night",
+      "enemyBudget": 5,
+      "totalEnemies": 8,
+      "spawnTable": [
+        { "enemyId": "wraith", "weight": 1.0 },
+        { "enemyId": "censor_drone", "weight": 0.5 }
+      ],
+      "loadout": ["sidearm", "braid_whip"],
+      "rescueReward": 0.15,
+      "signageFlipThreshold": 0.5
+    },
+    {
+      "id": "bazaar",
+      "displayName": "Bazaar Alleys",
+      "map": "L_Bazaar",
+      "objective": "ReachExit",
+      "stylePackId": "urban_grit",
+      "signageSetId": "bazaar_fa",
+      "lightingPreset": "dusk",
+      "enemyBudget": 7,
+      "totalEnemies": 18,
+      "spawnTable": [
+        { "enemyId": "wraith", "weight": 0.55 },
+        { "enemyId": "baton_husk", "weight": 0.3 },
+        { "enemyId": "censor_drone", "weight": 0.15 }
+      ],
+      "loadout": ["sidearm", "street_thunder", "braid_whip"],
+      "rescueReward": 0.15,
+      "signageFlipThreshold": 0.45
+    },
+    {
+      "id": "detention",
+      "displayName": "Detention Block",
+      "map": "L_Detention",
+      "objective": "Rescue",
+      "stylePackId": "urban_grit",
+      "signageSetId": "bazaar_fa",
+      "lightingPreset": "night",
+      "enemyBudget": 6,
+      "totalEnemies": 14,
+      "spawnTable": [
+        { "enemyId": "baton_husk", "weight": 0.5 },
+        { "enemyId": "wraith", "weight": 0.35 },
+        { "enemyId": "censor_drone", "weight": 0.15 }
+      ],
+      "loadout": ["drumfire", "street_thunder", "sidearm"],
+      "rescueReward": 0.2,
+      "signageFlipThreshold": 0.5
+    },
+    {
+      "id": "tv_tower",
+      "displayName": "State TV Tower",
+      "map": "L_TVTower",
+      "objective": "Clear",
+      "stylePackId": "urban_grit",
+      "signageSetId": "bazaar_fa",
+      "lightingPreset": "dusk",
+      "enemyBudget": 8,
+      "totalEnemies": 20,
+      "spawnTable": [
+        { "enemyId": "propaganda_caster", "weight": 0.4 },
+        { "enemyId": "censor_drone", "weight": 0.3 },
+        { "enemyId": "wraith", "weight": 0.22 },
+        { "enemyId": "inquisitor", "weight": 0.08 }
+      ],
+      "loadout": ["drumfire", "molotov_launcher", "street_thunder"],
+      "rescueReward": 0.15,
+      "signageFlipThreshold": 0.5
+    },
+    {
+      "id": "plaza",
+      "displayName": "Palace Plaza",
+      "map": "L_Plaza",
+      "objective": "Liberate",
+      "stylePackId": "dawn_gold",
+      "signageSetId": "bazaar_fa",
+      "lightingPreset": "dusk",
+      "enemyBudget": 6,
+      "totalEnemies": 12,
+      "spawnTable": [
+        { "enemyId": "supreme_shadow", "weight": 0.07 },
+        { "enemyId": "inquisitor", "weight": 0.13 },
+        { "enemyId": "baton_husk", "weight": 0.35 },
+        { "enemyId": "wraith", "weight": 0.45 }
+      ],
+      "loadout": ["drumfire", "molotov_launcher", "voice_of_people"],
+      "rescueReward": 0.15,
+      "signageFlipThreshold": 0.5
+    }
+  ]
+}

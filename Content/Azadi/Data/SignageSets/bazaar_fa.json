@@ -1,0 +1,31 @@
+{
+  "type": "signageset",
+  "items": [
+    {
+      "id": "bazaar_fa",
+      "displayName": "Bazaar — Persian street set (placeholder)",
+      "slots": [
+        {
+          "slotId": "awning_grocer",
+          "occupiedTexture": "file:textures/occupied_awning.png",
+          "liberatedTexture": "file:textures/liberated_awning.png"
+        },
+        {
+          "slotId": "billboard_main",
+          "occupiedTexture": "file:textures/occupied_billboard.png",
+          "liberatedTexture": "file:textures/liberated_billboard.png"
+        },
+        {
+          "slotId": "mural_wall",
+          "occupiedTexture": "file:textures/occupied_mural.png",
+          "liberatedTexture": "file:textures/liberated_mural.png"
+        },
+        {
+          "slotId": "banner_street",
+          "occupiedTexture": "file:textures/occupied_banner.png",
+          "liberatedTexture": "file:textures/liberated_banner.png"
+        }
+      ]
+    }
+  ]
+}

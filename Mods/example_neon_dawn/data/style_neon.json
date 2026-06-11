@@ -1,0 +1,26 @@
+{
+  "type": "stylepack",
+  "items": [
+    {
+      "id": "neon_dawn",
+      "displayName": "Neon Dawn",
+      "hudAccent": { "r": 0.93, "g": 0.25, "b": 0.87, "a": 1.0 },
+      "hudText": { "r": 0.9, "g": 0.97, "b": 1.0, "a": 1.0 },
+      "hudBackdrop": { "r": 0.03, "g": 0.0, "b": 0.06, "a": 0.6 },
+      "crosshairColor": { "r": 0.25, "g": 0.87, "b": 0.93, "a": 1.0 },
+      "dangerColor": { "r": 1.0, "g": 0.25, "b": 0.3, "a": 1.0 },
+      "saturation": 1.1,
+      "contrast": 1.15,
+      "colorTint": { "r": 0.95, "g": 0.92, "b": 1.05, "a": 1.0 },
+      "vignetteIntensity": 0.6,
+      "bloomIntensity": 1.2,
+      "filmGrainIntensity": 0.08,
+      "liberatedSaturation": 1.35,
+      "liberatedTint": { "r": 1.0, "g": 0.96, "b": 1.08, "a": 1.0 },
+      "musicCalm": "",
+      "musicCombat": "",
+      "musicAnthem": "",
+      "stingers": {}
+    }
+  ]
+}

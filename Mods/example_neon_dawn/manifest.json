@@ -1,0 +1,16 @@
+{
+  "id": "example_neon_dawn",
+  "name": "Neon Dawn (example pack)",
+  "version": "1.0.0",
+  "author": "Azadi Community",
+  "description": "Example AzadiModKit pack: restyles the bazaar with neon liberation signage and a matching style pack. Defs replace core defs by id. Ships disabled — flip 'enabled' to try it.",
+  "enabled": false,
+  "dependencies": [],
+  "data": [
+    "data/style_neon.json",
+    "data/signage_neon.json",
+    "data/district_bazaar.json"
+  ],
+  "campaignAppend": [],
+  "campaignInsertAfter": ""
+}

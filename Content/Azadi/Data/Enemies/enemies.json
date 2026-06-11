@@ -1,0 +1,92 @@
+{
+  "type": "enemy",
+  "items": [
+    {
+      "id": "wraith",
+      "displayName": "Morality Wraith",
+      "health": 60,
+      "moveSpeed": 380,
+      "attackKind": "Ranged",
+      "damage": 9,
+      "attackInterval": 1.6,
+      "attackRange": 1400,
+      "sightRadius": 3200,
+      "liberationReward": 0.05,
+      "projectileSpeed": 1500,
+      "scale": 1.0,
+      "colorHex": "#3A3A46"
+    },
+    {
+      "id": "baton_husk",
+      "displayName": "Baton Husk",
+      "health": 110,
+      "moveSpeed": 520,
+      "attackKind": "Melee",
+      "damage": 18,
+      "attackInterval": 1.1,
+      "attackRange": 175,
+      "sightRadius": 2800,
+      "liberationReward": 0.06,
+      "scale": 1.1,
+      "colorHex": "#2B2B33"
+    },
+    {
+      "id": "censor_drone",
+      "displayName": "Censor Drone",
+      "health": 35,
+      "moveSpeed": 650,
+      "attackKind": "Melee",
+      "damage": 8,
+      "attackInterval": 0.8,
+      "attackRange": 150,
+      "sightRadius": 3600,
+      "liberationReward": 0.04,
+      "scale": 0.6,
+      "colorHex": "#6E1F2E"
+    },
+    {
+      "id": "propaganda_caster",
+      "displayName": "Propaganda Caster",
+      "health": 160,
+      "moveSpeed": 260,
+      "attackKind": "Ranged",
+      "damage": 12,
+      "attackInterval": 2.2,
+      "attackRange": 1800,
+      "sightRadius": 3600,
+      "liberationReward": 0.08,
+      "projectileSpeed": 1100,
+      "scale": 1.15,
+      "colorHex": "#3D3550"
+    },
+    {
+      "id": "inquisitor",
+      "displayName": "Inquisitor",
+      "health": 420,
+      "moveSpeed": 420,
+      "attackKind": "Melee",
+      "damage": 26,
+      "attackInterval": 1.4,
+      "attackRange": 230,
+      "sightRadius": 4000,
+      "liberationReward": 0.2,
+      "scale": 1.5,
+      "colorHex": "#1F1A24"
+    },
+    {
+      "id": "supreme_shadow",
+      "displayName": "The Supreme Shadow",
+      "health": 1200,
+      "moveSpeed": 340,
+      "attackKind": "Ranged",
+      "damage": 20,
+      "attackInterval": 1.8,
+      "attackRange": 2200,
+      "sightRadius": 5000,
+      "liberationReward": 0.5,
+      "projectileSpeed": 1300,
+      "scale": 2.6,
+      "colorHex": "#14121A"
+    }
+  ]
+}
