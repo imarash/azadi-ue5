@@ -11,7 +11,7 @@ distributable artifacts and publishes them on a GitHub Release:
 | Platform | Artifact | Produced by |
 |----------|----------|-------------|
 | Windows  | `Azadi-Windows-<version>.zip` (portable, contains `Azadi.exe`) | `tools/ci/package_windows.ps1` |
-| Windows  | `AzadiSetup-<version>.exe` (installer) | Inno Setup + `build/installer/azadi.iss` |
+| Windows  | `AzadiSetup-<version>.exe` (installer) | Inno Setup + `tools/installer/azadi.iss` |
 | macOS    | `Azadi-macOS-<version>.dmg` | `tools/ci/package_mac.sh` |
 
 The workflow lives at `.github/workflows/release.yml`.

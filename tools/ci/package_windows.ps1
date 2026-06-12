@@ -89,7 +89,7 @@ if (-not $Iscc) {
     Write-Warning "Inno Setup (ISCC.exe) not found - skipping installer. Install it to produce AzadiSetup-$Version.exe."
 } else {
     $IsccPath = if ($Iscc -is [string]) { $Iscc } else { $Iscc.Source }
-    $Iss = Join-Path $RepoRoot "build/installer/azadi.iss"
+    $Iss = Join-Path $RepoRoot "tools/installer/azadi.iss"
     Write-Host "==> Building installer with $IsccPath" -ForegroundColor Cyan
     & $IsccPath `
         "/DAppVersion=$Version" `
