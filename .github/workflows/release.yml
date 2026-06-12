@@ -1,0 +1,118 @@
+name: Build & Release
+
+# STATUS: UNTESTED — this pipeline has not been run end-to-end yet. It requires
+# self-hosted runners (see docs/BUILD.md) and a first verification run before it
+# can be relied on.
+#
+# Builds packaged game artifacts and publishes a GitHub Release with them
+# attached. Triggers on a version tag (v*) or manual dispatch.
+#
+# IMPORTANT: Packaging an Unreal Engine game requires UE 5.7 to be installed on
+# the runner. GitHub-hosted runners do NOT have Unreal Engine, so the build jobs
+# use SELF-HOSTED runners. Set them up once (see docs/BUILD.md) with labels:
+#   - Windows runner: [self-hosted, windows, unreal]
+#   - macOS runner:   [self-hosted, macos, unreal]
+# and a repository variable UE_ROOT pointing at the engine install on each.
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to build (e.g. 1.2.0). Defaults to ProjectVersion / tag."
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ---------------------------------------------------------------------------
+  version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.v.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: v
+        shell: bash
+        run: |
+          if [[ -n "${{ inputs.version }}" ]]; then
+            V="${{ inputs.version }}"
+          elif [[ "${{ github.ref_type }}" == "tag" ]]; then
+            V="${{ github.ref_name }}"
+          else
+            V="$(grep -E '^ProjectVersion=' Config/DefaultGame.ini | head -1 | cut -d= -f2 | tr -d '[:space:]')"
+          fi
+          V="${V#v}"
+          echo "version=$V" >> "$GITHUB_OUTPUT"
+          echo "Resolved version: $V"
+
+  # ---------------------------------------------------------------------------
+  windows:
+    needs: version
+    runs-on: [self-hosted, windows, unreal]
+    env:
+      UE_ROOT: ${{ vars.UE_ROOT }}
+      AZADI_VERSION: ${{ needs.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package Windows (exe zip + installer)
+        shell: pwsh
+        run: ./tools/ci/package_windows.ps1 -Version "$env:AZADI_VERSION"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows
+          path: |
+            dist/Azadi-Windows-*.zip
+            dist/AzadiSetup-*.exe
+          if-no-files-found: error
+          retention-days: 7
+
+  # ---------------------------------------------------------------------------
+  macos:
+    needs: version
+    runs-on: [self-hosted, macos, unreal]
+    env:
+      UE_ROOT: ${{ vars.UE_ROOT }}
+      AZADI_VERSION: ${{ needs.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package macOS (.dmg)
+        run: ./tools/ci/package_mac.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macos
+          path: dist/Azadi-macOS-*.dmg
+          if-no-files-found: error
+          retention-days: 7
+
+  # ---------------------------------------------------------------------------
+  release:
+    needs: [version, windows, macos]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+      - name: List artifacts
+        run: find artifacts -type f -printf '%p (%s bytes)\n'
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ needs.version.outputs.version }}
+          name: AZADI v${{ needs.version.outputs.version }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          files: |
+            artifacts/windows/Azadi-Windows-*.zip
+            artifacts/windows/AzadiSetup-*.exe
+            artifacts/macos/Azadi-macOS-*.dmg

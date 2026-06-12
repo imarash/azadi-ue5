@@ -52,6 +52,7 @@ In-editor: Output Log → Cmd → Python → `py azadi_bootstrap.py`
 
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — system map, module table, data flow
 - [docs/MODDING.md](docs/MODDING.md) — community pack authoring
+- [docs/BUILD.md](docs/BUILD.md) — build pipeline & release artifacts
 
 ## Related
 
